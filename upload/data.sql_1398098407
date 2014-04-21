@@ -1,0 +1,13 @@
+INSERT INTO orders (file_name, start_date, stop_date, status, comment)
+  VALUES ('test1.txt', NOW(),
+          '2014-04-03 09:00', 0, 'Hurry');
+
+
+INSERT INTO orders (file_name, start_date, stop_date, status, comment)
+  VALUES ('test-2.txt', NOW(),
+          '2014-04-04 09:00', 0, 'Hurry');
+
+
+INSERT INTO orders (file_name, start_date, stop_date, status, comment)
+  VALUES ('test-3.txt', NOW(),
+          '2014-04-03 09:00', 2, 'Camone!!!');

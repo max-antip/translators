@@ -1,0 +1,102 @@
+CREATE TABLE test.admins
+(
+  id     INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name   TEXT,
+  pass   TEXT,
+  status INT
+);
+
+
+SELECT
+  id,
+  pass
+FROM translators
+WHERE login = 'Max';
+
+
+SELECT
+  *
+FROM translators;
+
+
+SELECT
+  *
+FROM translators
+WHERE id = 1 AND pass = '12345';
+
+
+INSERT INTO orders (file_path, file_name, stop_date)
+  VALUES ('Test.rtf', 'ttt', '2014.04.23 00:06');
+
+
+INSERT INTO orders (file_name, stop_date, status, comment)
+  VALUES ('test-66.txt',
+          '2014-04-04 0:00', 0, 'Hurry');
+
+
+SELECT
+  *
+FROM orders;
+
+UPDATE orders
+SET status = 2, translator_comment = 'Done',
+  translated_file = 'c:/path', translated_date = '2014-04-04 0:00'
+WHERE id = 1;
+
+
+INSERT INTO `admins` (login, pass) VALUES ('max', '123');
+
+SELECT
+  *
+FROM order_bags;
+
+SELECT
+  *
+FROM orders
+  JOIN order_bags ON order_bags.order_id = orders.id AND order_bags.translater_id = 10;
+
+SELECT
+  *
+FROM orders ord
+WHERE ord.id NOT IN (SELECT
+                       ob.order_id
+                     FROM order_bags ob);
+
+
+SELECT
+  *
+FROM order_bags;
+
+DELETE FROM order_bags
+WHERE id = 5;
+
+
+CREATE TABLE clients
+(
+  id      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  login   LONGTEXT,
+  email   LONGTEXT,
+  address LONGTEXT,
+  pass    LONGTEXT,
+  type    INT,
+  status  INT
+);
+
+SELECT
+  ord.id,
+  ord.stop_date,
+  ord.stop_date,
+  ord.translated_date,
+  ord.type,
+  ord.comment,
+  ord.translator_comment,
+  tr.login,
+  ord.status
+FROM orders ord
+  LEFT JOIN order_bags
+    ON ord.id = order_bags.order_id
+  LEFT JOIN translators tr
+    ON tr.id = order_bags.translater_id;
+
+
+select * from orders where id=2;
