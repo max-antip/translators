@@ -10,6 +10,8 @@ define ('SERVISE_NAME', 'Сервис переводов');
 
 mysql_connect(DB_HOST, DB_LOGIN, DB_PASSWORD);
 
+
+
 //mysql_query("set names utf8") or die ("<br>Invalid query: " . mysql_error());
 
 /*
